@@ -5,7 +5,9 @@ const fs = require('fs');
 // anounymous function
 // we have to wait for this function to get data from the website. thats why this function async
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
   // if you want to open browser insert these code line inside paranthesis `{headless: false}`  example - launch({headless: false})
   const page = await browser.newPage()
   // below using go to function in puppeteer
